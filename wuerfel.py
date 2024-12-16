@@ -42,13 +42,17 @@ while mainloop:
 
             if ZAHL == 5:
                 pygame.draw.circle(FELD, WEISS, P1, 40)
-                pygame.draw.circle(FELD, WEISS, P1, 40)
-                pygame.draw.circle(FELD, WEISS, P1, 40)
-                pygame.draw.circle(FELD, WEISS, P1, 40)
-                pygame.draw.circle(FELD, WEISS, P1, 40)
+                pygame.draw.circle(FELD, WEISS, P2, 40)
+                pygame.draw.circle(FELD, WEISS, P4, 40)
+                pygame.draw.circle(FELD, WEISS, P5, 40)
+                pygame.draw.circle(FELD, WEISS, P7, 40)
 
             if ZAHL == 6:
-                pygame.draw.circle(FELD, WEISS, P1, 40)
-
-            if ZAHL == 1:
-                pygame.draw.circle(FELD, WEISS, P1, 40)
+                pygame.draw.circle(FELD, WEISS, P2, 40)
+                pygame.draw.circle(FELD, WEISS, P3, 40)
+                pygame.draw.circle(FELD, WEISS, P4, 40)
+                pygame.draw.circle(FELD, WEISS, P5, 40)
+                pygame.draw.circle(FELD, WEISS, P6, 40)
+                pygame.draw.circle(FELD, WEISS, P7, 40)
+        pygame.display.update()
+    pygame.quit()       
