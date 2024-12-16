@@ -6,7 +6,7 @@ FELD = pygame.display.set_mode((320, 320))
 pygame.display.set_caption("Wuefel")
 
 BLAU = (0, 0, 255); WEISS = (255, 255, 255)
-P1 = ((160,160)); P2 = ((160, 260)); P3 = ((160, 60))
+P1 = ((160,160)); P2 = ((60, 60)); P3 = ((160, 60))
 P4 = ((260, 60))
 P5 = ((60, 260)); P6 = ((160, 260)); P7 = ((260, 260))
 mainloop = True
@@ -19,8 +19,8 @@ while mainloop:
             mainloop = False
         
         if event.type == KEYDOWN:
-            FELD.fill(Blau)
-            ZAHL = random.randomrange (1, 7); print (ZAHL)
+            FELD.fill(BLAU)
+            ZAHL = random.randrange (1, 7); print (ZAHL)
 
             if ZAHL == 1:
                 pygame.draw.circle(FELD, WEISS, P1, 40)
@@ -55,4 +55,5 @@ while mainloop:
                 pygame.draw.circle(FELD, WEISS, P6, 40)
                 pygame.draw.circle(FELD, WEISS, P7, 40)
         pygame.display.update()
-    pygame.quit()       
+
+pygame.quit()       
