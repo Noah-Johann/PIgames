@@ -1,7 +1,9 @@
 import pygame, sys, random 
 from pygame.locals import *
-#from gpiozero import Button
+from gpiozero import Button
 pygame.init
+button_links = Button()
+button_rechts = Button()
 
 FELD = pygame.display.set_mode((640, 320))
 pygame.display.set_caption("Wuefel")
@@ -30,13 +32,13 @@ while mainloop:
     for event in pygame.event.get():
         if event.type == QUIT or (event.type == KEYUP and event.key == K_ESCAPE):
             mainloop = False
-        
-        if event.type == KEYDOWN:
+
+        if button_links.is_pressed or button_rechts.is_pressed:
             FELD.fill(BLAU)
             pygame.draw.line(FELD, ROT, (320, 0), (320, 320), 5)
 
+        if button_links.is_pressed():
             ZAHL = random.randrange (1, 7); print (ZAHL)
-            ZAHL2 = random.randrange (1,7);print (ZAHL2)
 
             #Würfel 1/rechts
             if ZAHL == 1:
@@ -72,6 +74,8 @@ while mainloop:
                 pygame.draw.circle(FELD, WEISS, P6, 40)
                 pygame.draw.circle(FELD, WEISS, P7, 40)
 
+        if button_links.is_pressed():
+            ZAHL2 = random.randrange (1,7);print (ZAHL2)
 
             #Würfel 2/links
             if ZAHL2 == 1:
