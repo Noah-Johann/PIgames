@@ -1,9 +1,11 @@
-import pygame, sys, random 
+import pygame, sys, random
 from pygame.locals import *
 from gpiozero import Button
+from time import sleep 
 pygame.init
-button_links = Button()
-button_rechts = Button()
+
+buttonLinks = Button(21)
+buttonRechts = Button(20)
 
 FELD = pygame.display.set_mode((640, 320))
 pygame.display.set_caption("Wuefel")
@@ -28,16 +30,21 @@ mainloop = True
 
 print ("Beliebige Taste drücken, um zu würfeln, ESC beendet das Spiel")
 
-while mainloop:
-    for event in pygame.event.get():
-        if event.type == QUIT or (event.type == KEYUP and event.key == K_ESCAPE):
-            mainloop = False
+while mainloop == True:
+   # for event in pygame.event.get():
+        #if event.type == QUIT or (event.type == KEYUP and event.key == K_ESCAPE):
+           # mainloop = False
 
-        if button_links.is_pressed or button_rechts.is_pressed:
-            FELD.fill(BLAU)
+        #print ("Feld")
+        #FELD.fill(BLAU)
+        
+
+        #rechts
+        if buttonRechts.is_pressed:
+            pygame.draw.rect(FELD, BLAU, pygame.Rect(320, 0, 320, 320))
             pygame.draw.line(FELD, ROT, (320, 0), (320, 320), 5)
-
-        if button_links.is_pressed():
+            pygame.display.update()
+            print("Button rechts")
             ZAHL = random.randrange (1, 7); print (ZAHL)
 
             #Würfel 1/rechts
@@ -74,7 +81,14 @@ while mainloop:
                 pygame.draw.circle(FELD, WEISS, P6, 40)
                 pygame.draw.circle(FELD, WEISS, P7, 40)
 
-        if button_links.is_pressed():
+            sleep(0.5)
+        
+        #Links
+        if buttonLinks.is_pressed:
+            print("Button links")
+            pygame.draw.rect(FELD, BLAU, pygame.Rect(0, 0, 320, 320))
+            pygame.draw.line(FELD, ROT, (320, 0), (320, 320), 5)
+            pygame.display.update()
             ZAHL2 = random.randrange (1,7);print (ZAHL2)
 
             #Würfel 2/links
@@ -110,6 +124,8 @@ while mainloop:
                 pygame.draw.circle(FELD, WEISS, P25, 40)
                 pygame.draw.circle(FELD, WEISS, P26, 40)
                 pygame.draw.circle(FELD, WEISS, P27, 40)
+
+            sleep(0.5)
         pygame.display.update()
 
 pygame.quit()       
