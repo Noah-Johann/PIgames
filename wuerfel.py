@@ -31,7 +31,10 @@ mainloop = True
 print ("Beliebige Taste drücken, um zu würfeln, ESC beendet das Spiel")
 
 while mainloop == True:
-        
+        for event in pygame.event.get():
+            if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
+                pygame.quit()
+                sys.exit()
         #rechts
         if buttonRechts.is_pressed:
             pygame.draw.rect(FELD, BLAU, pygame.Rect(320, 0, 320, 320))
